@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type='text/javascript' src='js/knockout-3.3.0.js'></script>
+<script type='text/javascript' src='js/runningTotal.js'></script>
+<script id="itemsTmpl" type="text/html">
+    <tr>
+        <td><input size="4" data-bind="value: year" /></td>
+        <td><input size="4" data-bind="value: yearValue" /></td>
+         <td data-bind="text: total"></td>
+         <td><a href="#" data-bind="click: $root.removeItem.bind($root)"> Remove </a></td>
+    </tr>
+</script>
+</head>
+<body>
+<!-- TODO: fill in with UI -->
+	<table class="table table-striped">
+	    <tr>
+	        <th>Year</th>
+	        <th>Value</th>
+	        <th>Total</th>
+	        <th></th>
+	    </tr>
+	    <tbody data-bind="template: { name: 'itemsTmpl', foreach: items}"></tbody>
+	</table>
+	<button data-bind="click: addItem">Add Item</button>
+	<button data-bind="click: display">Display Data</button>
+	<button data-bind="click: clearDisplay">Clear Display</button>
+	<h4>Server Data</h4>
+	<div id="display"></div>
+</body>
+</html>
